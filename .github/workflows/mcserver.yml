@@ -14,7 +14,7 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
       - name: MC server container
-        run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e GAMEMODE=CREATIVE --name mc itzg/minecraft-server
+        run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e GAMEMODE=creative --name mc itzg/minecraft-server
         timeout-minutes: 60
       - name: Check IP
         run: curl https://api.ipify.org
