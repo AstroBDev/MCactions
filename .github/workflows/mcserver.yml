@@ -16,6 +16,8 @@ jobs:
       - name: MC server container
         run: docker run -d -p 25565:25565 --name mc itzg/minecraft-server
         timeout-minutes: 60
+      - name: Check IP
+        run: curl https://api.ipify.org
       - uses: apogiatzis/ngrok-tunneling-action@v0.1.4
         with:
           timeout: 1h
