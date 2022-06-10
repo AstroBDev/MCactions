@@ -34,10 +34,12 @@ jobs:
           add: 'README.md'
           message: 'Updating ngrok URL'
           
-      - name: Reattaching docker container
-        run: docker attach mc
-        timeout-minutes: 30
+      - name: Holding action
+        run: sleep 30m
+        timeout-minutes: 31
         
+      - name: Stopping server
+        run: docker exec mc rcon-cli stop        
       - name: Deleting Ngrok URL
         if: always()
         run: ( echo -n "# Not running" ) > README.md
