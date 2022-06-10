@@ -35,7 +35,7 @@ jobs:
         
       - name: Deleting Ngrok URL
         if: always()
-        run: ( "Not running" ) > url.txt
+        run: ( echo "Not running" ) > url.txt
         shell: bash
       - name: Add & Commit
         if: always()
