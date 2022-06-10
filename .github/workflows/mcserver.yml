@@ -12,7 +12,7 @@ jobs:
         run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
         timeout-minutes: 60
       - name: Check IP
-        run: curl https://api.ipify.org
+        run: (sleep 20 ; curl http://127.0.0.1:4040/api/tunnels ) &
       - uses: apogiatzis/ngrok-tunneling-action@v0.1.4
         timeout-minutes: 60
         with:
