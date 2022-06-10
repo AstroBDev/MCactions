@@ -37,7 +37,7 @@ jobs:
         timeout-minutes: 31
         
       - name: Stopping server
-        run: docker exec mc rcon-cli stop
+        run: docker exec mc rcon-cli stop && docker attach mc
       - name: Deleting Ngrok URL
         if: always()
         run: ( echo -n "# Not running" ) > README.md
