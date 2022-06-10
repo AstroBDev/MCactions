@@ -26,21 +26,23 @@ jobs:
       - name: Check Ngrok IP
         run: (echo -n "# Running on " && ( curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url" | tail -c 21 ) ) > README.md
         shell: bash
-      - name: Add & Commit
+      - name: Add & Commit URL
         uses: EndBug/add-and-commit@v9.0.0
         with:
           add: 'README.md'
           message: 'Updating ngrok URL'
           
-      - name: Reattaching docker container
-        run: docker attach mc
+      - name: Holding action
+        run: sleep
         timeout-minutes: 30
         
+      - name: Stopping server
+        run: docker exec mc rcon-cli stop
       - name: Deleting Ngrok URL
         if: always()
         run: ( echo -n "# Not running" ) > README.md
         shell: bash
-      - name: Add & Commit
+      - name: Add & Commit Offline URL
         if: always()
         uses: EndBug/add-and-commit@v9.0.0
         with:
