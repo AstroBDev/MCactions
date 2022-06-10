@@ -21,7 +21,7 @@ jobs:
         shell: bash
         
       - name: Check Ngrok IP
-        run: ( curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url" ) > url.txt
+        run: (echo "# " && ( curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url" | tail -c 21 ) ) > README.md
         shell: bash
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.0.0
@@ -35,7 +35,7 @@ jobs:
         
       - name: Deleting Ngrok URL
         if: always()
-        run: ( echo "Not running" ) > url.txt
+        run: ( echo "# Not running" ) > README.md
         shell: bash
       - name: Add & Commit
         if: always()
