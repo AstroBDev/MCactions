@@ -31,7 +31,7 @@ jobs:
         
       - name: MC server container
         run: docker run -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
-        timeout-minutes: 2
+        timeout-minutes: 30
         
       - name: Deleting Ngrok URL
         if: always()
