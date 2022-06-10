@@ -8,14 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 17
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '17'
       - name: MC server container
         run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
         timeout-minutes: 60
       - name: Check IP
         run: curl https://api.ipify.org
+      - uses: apogiatzis/ngrok-tunneling-action@v0.1.4
+        timeout-minutes: 60
+        with:
+          port: 25565
+          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
 
