@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: 'deployment'
       
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         shell: bash
@@ -18,13 +20,25 @@ jobs:
       - run: ( ./ngrok tcp 25565 ) &
         shell: bash
         
-      - name: Checl Ngrok IP
-        run: curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url"
+      - name: Check Ngrok IP
+        run: ( curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url" ) > url.txt
         shell: bash
-      - run: ls
-        shell: bash
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.0.0
+        with:
+          add: 'url.txt'
+          message: 'Updating ngrok URL'
         
       - name: MC server container
         run: docker run -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
         timeout-minutes: 2
+        
+      - name: Deleting Ngrok URL
+        run: ( "Not running" ) > url.txt
+        shell: bash
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.0.0
+        with:
+          add: 'url.txt'
+          message: 'Removing ngrok URL'
 
