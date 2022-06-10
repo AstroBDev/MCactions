@@ -15,7 +15,7 @@ jobs:
         run: mkdir worlds
       - run: readlink -f worlds
       - name: MC server container
-        run: docker run -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --mount type=bind,source=/worlds/,target=/worlds --name mc itzg/minecraft-server
+        run: docker run -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --mount type=bind,source=/home/runner/work/MCactions/MCactions/worlds,target=/worlds --name mc itzg/minecraft-server
       
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         shell: bash
