@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: 'deployment'
+          ref: 'persistent-world'
           
       - name: Make world folder
         run: mkdir worlds
