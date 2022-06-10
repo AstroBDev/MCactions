@@ -11,9 +11,8 @@ jobs:
         with:
           ref: 'persistent-world'
           
-      - name: Make world folder
-        run: mkdir world
-      - run: sudo chmod 777 world
+      - name: Make world folder accesible
+        run: sudo chmod 777 world
       - name: MC server container
         run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --mount type=bind,source=/home/runner/work/MCactions/MCactions/world,target=/data/world --name mc itzg/minecraft-server
       
