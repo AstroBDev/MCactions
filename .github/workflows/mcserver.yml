@@ -18,8 +18,4 @@ jobs:
         timeout-minutes: 60
       - name: Check IP
         run: curl https://api.ipify.org
-      - uses: apogiatzis/ngrok-tunneling-action@v0.1.4
-        with:
-          timeout: 1h
-          port: 25565
-          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+
