@@ -36,7 +36,7 @@ jobs:
           
       - name: Reattaching docker container
         run: docker attach mc
-        timeout-minutes: 30
+        timeout-minutes: 5
         
       - name: Deleting Ngrok URL
         if: always()
