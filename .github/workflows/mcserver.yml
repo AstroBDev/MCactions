@@ -34,9 +34,11 @@ jobs:
         timeout-minutes: 2
         
       - name: Deleting Ngrok URL
+        if: always()
         run: ( "Not running" ) > url.txt
         shell: bash
       - name: Add & Commit
+        if: always()
         uses: EndBug/add-and-commit@v9.0.0
         with:
           add: 'url.txt'
