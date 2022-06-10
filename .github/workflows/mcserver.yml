@@ -17,7 +17,9 @@ jobs:
         shell: bash
       - run: ( ./ngrok tcp 25565 ) &
         shell: bash
-      - run: curl http://127.0.0.1:4040/api/tunnels
+        
+      - name: Checl Ngrok IP
+        run: curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url"
         shell: bash
         
       - name: MC server container
