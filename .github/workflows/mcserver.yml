@@ -33,7 +33,7 @@ jobs:
           message: 'Updating ngrok URL'
           
       - name: Holding action
-        run: sleep
+        run: sleep 30m
         timeout-minutes: 30
         
       - name: Stopping server
