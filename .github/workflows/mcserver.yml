@@ -10,6 +10,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: 'deployment'
+          
+      - name: MC server container
+        run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
       
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         shell: bash
@@ -28,9 +31,9 @@ jobs:
         with:
           add: 'README.md'
           message: 'Updating ngrok URL'
-        
-      - name: MC server container
-        run: docker run -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
+          
+      - name: Reattaching docker container
+        run: docker attach mc
         timeout-minutes: 30
         
       - name: Deleting Ngrok URL
