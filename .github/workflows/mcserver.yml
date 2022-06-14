@@ -14,17 +14,16 @@ jobs:
       - name: MC server container
         run: docker run -d -p 25565:25565 -e EULA=TRUE -e ONLINE_MODE=FALSE -e MODE=creative --name mc itzg/minecraft-server
       
-      - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-        shell: bash
-      - run: unzip -qq ngrok-stable-linux-amd64.zip
-        shell: bash
-      - run: ./ngrok authtoken ${{ secrets.NGROK_AUTHTOKEN }}
-        shell: bash
-      - run: ( ./ngrok tcp 25565 ) &
-        shell: bash
+      - uses: luisboto/ngrok-tunnel-action@v0.1.7.2
+        with:
+          timeout: 1h
+          port: 25565
+          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+          tunnel_type: tcp
+          save_url_to_filename: url.txt
         
       - name: Check Ngrok IP
-        run: (echo -n "# Running on " && ( curl http://127.0.0.1:4040/api/tunnels | jq -r ".tunnels[0].public_url" | tail -c 21 ) ) > README.md
+        run: (echo -n "# Running on " && ( echo url.txt | tail -c 21 ) ) > README.md
         shell: bash
       - name: Add & Commit URL
         uses: EndBug/add-and-commit@v9.0.0
