@@ -61,10 +61,13 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:snowy_slopes": "2022-06-14 10:06:35 +0000",
+      "minecraft:sunflower_plains": "2022-06-14 10:05:54 +0000",
       "minecraft:birch_forest": "2022-06-11 09:11:44 +0000",
       "minecraft:bamboo_jungle": "2022-06-11 09:03:42 +0000",
       "minecraft:savanna_plateau": "2022-06-11 09:17:48 +0000",
       "minecraft:beach": "2022-06-11 09:17:14 +0000",
+      "minecraft:dark_forest": "2022-06-14 10:01:33 +0000",
       "minecraft:sparse_jungle": "2022-06-11 09:05:56 +0000",
       "minecraft:river": "2022-06-10 18:45:33 +0000",
       "minecraft:lukewarm_ocean": "2022-06-11 09:12:42 +0000",
@@ -75,6 +78,7 @@
       "minecraft:warm_ocean": "2022-06-11 09:12:59 +0000",
       "minecraft:deep_lukewarm_ocean": "2022-06-11 09:12:51 +0000",
       "minecraft:flower_forest": "2022-06-10 18:45:48 +0000",
+      "minecraft:frozen_peaks": "2022-06-14 10:06:26 +0000",
       "minecraft:old_growth_birch_forest": "2022-06-11 09:03:35 +0000",
       "minecraft:meadow": "2022-06-11 09:18:30 +0000",
       "minecraft:savanna": "2022-06-11 09:05:12 +0000",
@@ -136,6 +140,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/transportation/birch_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
+    },
+    "done": true
+  },
   "minecraft:end/elytra": {
     "criteria": {
       "elytra": "2022-06-11 09:03:19 +0000"
@@ -151,6 +161,12 @@
   "minecraft:recipes/building_blocks/cobbled_deepslate_slab": {
     "criteria": {
       "has_cobbled_deepslate": "2022-06-10 22:42:37 +0000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/mangrove_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
     },
     "done": true
   },
@@ -178,6 +194,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/transportation/acacia_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
+    },
+    "done": true
+  },
   "minecraft:recipes/tools/stone_pickaxe": {
     "criteria": {
       "has_cobblestone": "2022-06-10 22:42:37 +0000"
@@ -187,6 +209,18 @@
   "minecraft:recipes/building_blocks/deepslate_brick_slab_from_cobbled_deepslate_stonecutting": {
     "criteria": {
       "has_cobbled_deepslate": "2022-06-10 22:42:37 +0000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/jungle_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/spruce_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
     },
     "done": true
   },
@@ -211,6 +245,12 @@
   "minecraft:recipes/tools/stone_hoe": {
     "criteria": {
       "has_cobblestone": "2022-06-10 22:42:37 +0000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/dark_oak_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
     },
     "done": true
   },
@@ -284,6 +324,12 @@
   "minecraft:recipes/combat/crossbow": {
     "criteria": {
       "has_stick": "2022-06-10 18:59:29 +0000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/oak_boat": {
+    "criteria": {
+      "in_water": "2022-06-14 10:01:52 +0000"
     },
     "done": true
   },
