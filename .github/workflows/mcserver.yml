@@ -23,7 +23,7 @@ jobs:
           save_url_to_filename: url.txt
         
       - name: Check Ngrok IP
-        run: (echo -n "# Running on " && ( echo url.txt | tail -c 21 ) ) > README.md
+        run: (echo -n "# Running on " && ( cat url.txt | tail -c 21 ) ) > README.md
         shell: bash
       - name: Add & Commit URL
         uses: EndBug/add-and-commit@v9.0.0
